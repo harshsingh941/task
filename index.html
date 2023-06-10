@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+ 
+<body>
+ 
+    <header class="header">
+        <a href="#" class="logo">Logo</a>
+ 
+        <i class='bx bx-menu' id="menu-icon"></i>
+ 
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+        
+    </header>
+    <div class="nav-bg"></div>
+
+    <div class="container">
+        <div id="left">
+            <div class="list" draggable="true">
+                <p>Item 1</p>
+            </div>
+            <div class="list" draggable="true">
+                <p>Item 2</p>
+            </div>
+            <div class="list" draggable="true">
+                <p>Item 3</p>
+            </div>
+            <div class="list" draggable="true">
+                <p>Item 4</p>
+            </div>
+            
+        </div>
+        <div id="right">
+            
+        </div>
+        
+        <div class="button">
+            <button class="glow-on-hover" type="button" onclick="RefreshPage()">RESET</button>
+        </div>
+    </div>
+
+ 
+ 
+    <script src="script.js"></script>
+    <script>
+        let lists=document.getElementsByClassName("list");
+        let rightbox=document.getElementById("right");
+        let leftbox=document.getElementById("left");
+        let message = document.getElementById('message');
+        for(list of lists){
+            list.addEventListener("dragstart",function(e){
+                let selected=e.target;
+
+                rightbox.addEventListener("dragover",function(e){
+                    e.preventDefault();
+                    
+                });
+                rightbox.addEventListener("drop",function(e){
+                    rightbox.appendChild(selected);
+                    selected=null;
+                    
+                });
+                
+            })
+            
+        }
+        
+
+    </script>
+    <script type="text/javascript">
+        function RefreshPage(){
+            location.reload();
+        }
+    </script>
+</body>
+ 
+</html>
